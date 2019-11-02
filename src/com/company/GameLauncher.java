@@ -1,10 +1,8 @@
 package com.company;
 
  class GameLauncher {
-    private int systemNumber = 0;
+    static int systemNumber = 0;
 
-    private int playerLife;
-    private int enemyLife;
 
     private int playerNum = 0;
     private int enemyNum = 0;
@@ -14,54 +12,52 @@ package com.company;
 
     void start() {
 
-        myPlayer.setLife(playerLife);
-        System.out.println("Player life is " + playerLife);
-        enemy.setLife(enemyLife);
-        System.out.println("Enemy life is " + enemyLife);
 
-        if(playerLife <= 0 || enemyLife <= 0) {
-            System.out.println("Player life or enemy life is zero \n Set life above zero");
-            return;
-        }
+        System.out.println("Player life is " + Player.life);
+
+        System.out.println("Enemy life is " + Bot.life);
 
 
         systemNumber = SystemGuess.sysGuess();
 
-
-        myPlayer.setSystemNum(systemNumber);
-        enemy.setSystemNum(systemNumber);
-
         System.out.println("Enter a number from 1 to 20");
 
-        do {
-           // myPlayer.guess();
-           // enemy.guess();
+
+        while (Bot.life > 0 && Player.life > 0) {
             playerNum = myPlayer.guess();
             enemyNum = enemy.guess();
 
             if(playerNum == systemNumber) {
-                enemyLife = enemy.loseLife();
+                enemy.loseLife();
                 enemy.setRandNum();
-                System.out.println("Enemy lose life \nEnemy life is " + enemyLife);
-            } else if(enemyNum == systemNumber) {
-                playerLife = myPlayer.loseLife();
-                enemy.setRandNum();
-                System.out.println("You lose life \nYou life is " + playerLife);
-            }
+                //System.out.println("Enemy lose life \nEnemy life is " + Bot.life);
+                if (Bot.life > 0) {
+                    systemNumber = SystemGuess.sysGuess();
+                    System.out.println("System guess a new number from 1 to 20");
+                }
 
-        } while (enemyLife >= 0 || playerLife >= 0);
+
+            } else if(enemyNum == systemNumber) {
+                myPlayer.loseLife();
+                enemy.setRandNum();
+                //System.out.println("You lose life \nYou life is " + Player.life);
+                if (Player.life > 0) {
+                    systemNumber = SystemGuess.sysGuess();
+                    System.out.println("System guess a new number from 1 to 20");
+                }
+            }
+        }
+
 
         myPlayer.scanner.close();
         myPlayer.scanner.close();
 
         System.out.println("The game is over");
-
-        return;
     }
 
     GameLauncher (int playerLife, int enemyLife) {
-        this.playerLife = playerLife;
-        this.enemyLife = enemyLife;
+        Player.life= playerLife;
+        Bot.life = enemyLife;
     }
 
 
