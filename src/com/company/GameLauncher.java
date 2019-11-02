@@ -24,7 +24,9 @@ package com.company;
             return;
         }
 
-        systemNumber = 1 + (int) (Math.random() * 20);
+
+        systemNumber = SystemGuess.sysGuess();
+
 
         myPlayer.setSystemNum(systemNumber);
         enemy.setSystemNum(systemNumber);
@@ -32,27 +34,29 @@ package com.company;
         System.out.println("Enter a number from 1 to 20");
 
         do {
-            myPlayer.guess();
+           // myPlayer.guess();
+           // enemy.guess();
             playerNum = myPlayer.guess();
-
-
-            enemy.guess();
             enemyNum = enemy.guess();
 
             if(playerNum == systemNumber) {
-                enemy.loseLife();
                 enemyLife = enemy.loseLife();
+                enemy.setRandNum();
+                System.out.println("Enemy lose life \nEnemy life is " + enemyLife);
             } else if(enemyNum == systemNumber) {
-                myPlayer.loseLife();
                 playerLife = myPlayer.loseLife();
+                enemy.setRandNum();
+                System.out.println("You lose life \nYou life is " + playerLife);
             }
 
-        } while (enemyLife <= 0 || playerLife <= 0);
+        } while (enemyLife >= 0 || playerLife >= 0);
 
         myPlayer.scanner.close();
         myPlayer.scanner.close();
 
+        System.out.println("The game is over");
 
+        return;
     }
 
     GameLauncher (int playerLife, int enemyLife) {

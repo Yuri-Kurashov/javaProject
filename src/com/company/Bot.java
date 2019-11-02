@@ -27,12 +27,15 @@ public class Bot implements Play {
         System.out.println("Enemy suggest " + guessNum);
         if (guessNum > systemNum) {
             lastForRand = guessNum;
-            System.out.println("Enemy do not guess <");
+            System.out.println("last number for rand " + lastForRand);
+
 
         } else if (guessNum < systemNum) {
             firstForRand = guessNum;
-            System.out.println("Enemy do not guess >");
+            System.out.println("First number is " + firstForRand);
+
         } else {
+            systemNum = SystemGuess.sysGuess();
             System.out.println("Enemy guess the number \n System guess a new number from 1 to 20");
         }
         return guessNum;
@@ -42,12 +45,18 @@ public class Bot implements Play {
     @Override
     public int loseLife() {
         if (life > 0) {
-            life -= 10;
+            life -= 20;
         } else {
             System.out.println("Enemy lost the game \n You are winner");
         }
         return life;
     }
+
+    public void setRandNum(){
+        firstForRand = 1;
+        lastForRand = 20;
+    }
+
 
 
 }

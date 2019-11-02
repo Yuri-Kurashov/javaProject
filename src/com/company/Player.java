@@ -31,6 +31,7 @@ public class Player implements Play {
         } else if (guessNum < systemNum) {
             System.out.println("You do not guess the number \n The number is bigger");
         } else {
+            systemNum = SystemGuess.sysGuess();
             System.out.println("You guess the number \n System guess a new number from 1 to 20");
         }
         return guessNum;
@@ -40,7 +41,7 @@ public class Player implements Play {
     public int loseLife() {
 
         if (life > 0) {
-            life -= 10;
+            life -= 20;
         } else {
             System.out.println("You lost the game \n Enemy is winner");
         }
