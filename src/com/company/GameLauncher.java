@@ -29,17 +29,15 @@ package com.company;
                 enemy.setRandNum();
                 if (Bot.life > 0) {
                     systemNumber = SystemGuess.sysGuess();
-                    System.out.println("System guess a new number from 1 to 20");
+                    System.out.println("System thinks a new number from 1 to 20");
                 }
-
-
             } else if(enemyNum == systemNumber) {
                 myPlayer.loseLife();
                 enemy.setRandNum();
                 //System.out.println("You lose life \nYou life is " + Player.life);
                 if (Player.life > 0) {
                     systemNumber = SystemGuess.sysGuess();
-                    System.out.println("System guess a new number from 1 to 20");
+                    System.out.println("System thinks a new number from 1 to 20");
                 }
             }
         }

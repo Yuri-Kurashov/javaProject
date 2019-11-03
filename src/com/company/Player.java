@@ -26,7 +26,7 @@ public class Player implements Play {
     public int loseLife() {
         if (life > 0) {
             life -= 20;
-            System.out.println("You lose life \nYou life is " + life);
+            System.out.println("You lose life \nYour life is " + life);
             if (life <= 0)
                 System.out.println("You lost the game");
         }

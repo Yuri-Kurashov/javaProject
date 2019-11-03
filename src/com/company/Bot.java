@@ -15,13 +15,13 @@ public class Bot implements Play {
         System.out.println("Enemy suggest " + guessNum);
         if (guessNum > GameLauncher.systemNumber) {
             lastForRand = guessNum - firstForRand;
-            System.out.println("First number is " + firstForRand);
-            System.out.println("last number for rand " + lastForRand);
+            //System.out.println("First number is " + firstForRand);
+            //System.out.println("last number for rand " + lastForRand);
         } else if (guessNum < GameLauncher.systemNumber) {
             firstForRand = guessNum + 1;
             lastForRand -= (firstForRand - 1);
-            System.out.println("First number is " + firstForRand);
-            System.out.println("last number for rand " + lastForRand);
+            //System.out.println("First number is " + firstForRand);
+            //System.out.println("last number for rand " + lastForRand);
         } else {
             System.out.println("Enemy guess the number");
         }
