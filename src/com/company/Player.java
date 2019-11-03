@@ -6,9 +6,7 @@ public class Player implements Play {
     static int life = 0;
     private int guessNum = 0;
 
-
     Scanner scanner = new Scanner(System.in);
-
 
 
     @Override
@@ -26,14 +24,12 @@ public class Player implements Play {
 
     @Override
     public int loseLife() {
-
         if (life > 0) {
             life -= 20;
             System.out.println("You lose life \nYou life is " + life);
             if (life <= 0)
                 System.out.println("You lost the game");
         }
-
         return life;
     }
 

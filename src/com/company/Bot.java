@@ -14,18 +14,18 @@ public class Bot implements Play {
         guessNum = firstForRand + (int) (Math.random() * lastForRand);
         System.out.println("Enemy suggest " + guessNum);
         if (guessNum > GameLauncher.systemNumber) {
-            lastForRand = guessNum - 1;
+            lastForRand = guessNum - firstForRand;
             System.out.println("First number is " + firstForRand);
             System.out.println("last number for rand " + lastForRand);
         } else if (guessNum < GameLauncher.systemNumber) {
             firstForRand = guessNum + 1;
+            lastForRand -= (firstForRand - 1);
             System.out.println("First number is " + firstForRand);
             System.out.println("last number for rand " + lastForRand);
         } else {
             System.out.println("Enemy guess the number");
         }
         return guessNum;
-
     }
 
     @Override

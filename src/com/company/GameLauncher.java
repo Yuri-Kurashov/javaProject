@@ -3,7 +3,6 @@ package com.company;
  class GameLauncher {
     static int systemNumber = 0;
 
-
     private int playerNum = 0;
     private int enemyNum = 0;
 
@@ -12,11 +11,9 @@ package com.company;
 
     void start() {
 
-
         System.out.println("Player life is " + Player.life);
 
         System.out.println("Enemy life is " + Bot.life);
-
 
         systemNumber = SystemGuess.sysGuess();
 
@@ -30,7 +27,6 @@ package com.company;
             if(playerNum == systemNumber) {
                 enemy.loseLife();
                 enemy.setRandNum();
-                //System.out.println("Enemy lose life \nEnemy life is " + Bot.life);
                 if (Bot.life > 0) {
                     systemNumber = SystemGuess.sysGuess();
                     System.out.println("System guess a new number from 1 to 20");
@@ -48,7 +44,6 @@ package com.company;
             }
         }
 
-
         myPlayer.scanner.close();
         myPlayer.scanner.close();
 
@@ -59,7 +54,4 @@ package com.company;
         Player.life= playerLife;
         Bot.life = enemyLife;
     }
-
-
-
 }

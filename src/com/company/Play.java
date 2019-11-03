@@ -5,7 +5,4 @@ public interface Play {
     int guess();
     int loseLife();
 
-
-
-
 }
